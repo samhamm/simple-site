@@ -1,4 +1,5 @@
 var express = require("express"),
+  http = require("http"),
   app = express();
 
 // app.get("/", function (req, res) {
@@ -30,9 +31,10 @@ app.get("/joke", function (req, res) {
 });
 
 console.log("The server is starting, and it is available at http://localhost:3000");
-app.listen(3000);
+http.createServer(app).listen(process.env.PORT || 3000);
+// app.listen(3000);
 
-// PAGE 48 - Rotates an inspirational message
+// PAGE 48 - Rotates an inspirational message every second
 // setInterval(function() {
 // $.get("http://localhost:3000/inspiration", function (response) {
 //   $("body").text(response);
