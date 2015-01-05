@@ -1,8 +1,12 @@
 var express = require("express"),
   app = express();
 
+// app.get("/", function (req, res) {
+//   res.send("OH HAI UNIVERSE!")
+// });
+
 app.get("/", function (req, res) {
-  res.send("OH HAI UNIVERSE!")
+  res.sendFile(__dirname + "/hello.html")
 });
 
 app.get("/inspiration", function (req, res) {
@@ -14,7 +18,7 @@ app.get("/inspiration", function (req, res) {
   res.send(messages[msgIndex]);
 });
 
-app.get("/jokes", function (req, res) {
+app.get("/joke", function (req, res) {
   var jokes = [
     { "setup": "Why do dogs lick their balls?",
       "punchline": "Because they can."},
@@ -27,3 +31,10 @@ app.get("/jokes", function (req, res) {
 
 console.log("The server is starting, and it is available at http://localhost:3000");
 app.listen(3000);
+
+// PAGE 48 - Rotates an inspirational message
+// setInterval(function() {
+// $.get("http://localhost:3000/inspiration", function (response) {
+//   $("body").text(response);
+// });
+// }, 1000);

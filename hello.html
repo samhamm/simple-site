@@ -1,0 +1,27 @@
+<html>
+<body>
+  <p id="page-text">Hello There, You Universal Universe You!!</p>
+  <button id="inspButton">Click here for inspiration!</button>
+
+  <p id="joke"></p>
+  <button id="jokeButton">Click here for a joke!</button>
+
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+  <script>
+    $("#inspButton").click(function() {
+      $.get("./inspiration", function(response) {
+        $("#page-text").text(response);
+      });
+    });
+
+    $("#jokeButton").click(function() {
+      $.get("./joke", function(response) {
+        var joke = response.setup + " " + response.punchline;
+        $("#page-text").text(joke);
+      });
+    });
+
+  </script>
+</body>
+</html>
